@@ -14,7 +14,6 @@ const reset = () => {
 
 document.addEventListener('keydown', e => {
     if (e.code === 'Space') {
-        e.preventDefault();
         state === 2 ? reset() : (state = 1, bird.v = -3);
     }
 });

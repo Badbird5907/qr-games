@@ -1,22 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flappy Bird + Tic Tac Toe</title>
-</head>
-<body>
-  <div id="game">
-      <div id="board"></div>
-      <div id="tttData">
-        <p id="status"></p>
-        <button id="resetTTT">Reset</button>  
-      </div>
-    </div>
-  <div id="flappy">
-    <canvas id="fc" width="300" height="400"></canvas>
-    <button id="frs">Reset</button>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 40px;
+    height: 100vh;
+    margin: 0;
+  }
+  #board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 5px;
+  }
+  .cell {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    cursor: pointer;
+  }
+
+  #flappy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #tttData {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+</style>
+<div id="game">
+  <div id="board"></div>
+  <div id="tttData">
+    <p id="status"></p>
+    <button id="rstt">Reset</button>
   </div>
-  <script type="module" src="/src/main.ts"></script>
-</body>
-</html>
+</div>
+<div id="flappy">
+  <canvas id="fc" width="300" height="400"></canvas>
+  <button id="frs">Reset</button>
+</div>
+<script type="module" src="/src/main.ts"></script>

@@ -1,7 +1,5 @@
-import "./style.css"
-
 let currentPlayer: "X" | "O" = "X"
-let gameBoard: ("X" | "O" | "")[] = ["", "", "", "", "", "", "", "", ""]
+let gameBoard: ("X" | "O" | "")[] = Array(9).fill("")
 let gameActive = true
 
 const board = document.getElementById("board") as HTMLDivElement
@@ -56,7 +54,7 @@ gameBoard.forEach((_, index) => {
 })
 
 // reset game
-document.getElementById("resetTTT")!.addEventListener("click", () => {
+document.getElementById("rstt")!.addEventListener("click", () => {
   currentPlayer = "X"
   gameBoard = Array(9).fill("")
   gameActive = true
