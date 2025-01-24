@@ -1,9 +1,11 @@
+import { d } from "./util"
+
 let currentPlayer: "X" | "O" = "X"
 let gameBoard: ("X" | "O" | "")[] = Array(9).fill("")
 let gameActive = true
 
-const board = document.getElementById("board") as HTMLDivElement
-const status = document.getElementById("status") as HTMLParagraphElement
+const board = d.getElementById("board") as HTMLDivElement
+const status = d.getElementById("status") as HTMLParagraphElement
 
 function cellClick(index: number): void {
   if (gameBoard[index] !== "" || !gameActive) return
@@ -22,7 +24,7 @@ function cellClick(index: number): void {
 }
 
 function updateBoard(): void {
-  const cells = document.getElementsByClassName("cell")
+  const cells = d.getElementsByClassName("cell")
   gameBoard.forEach((value, index) => {
     ;(cells[index] as HTMLDivElement).textContent = value
   })
@@ -47,14 +49,14 @@ function checkWin(): boolean {
 
 // create board
 gameBoard.forEach((_, index) => {
-  const cell = document.createElement("div")
+  const cell = d.createElement("div")
   cell.classList.add("cell")
   cell.addEventListener("click", () => cellClick(index))
   board.appendChild(cell)
 })
 
 // reset game
-document.getElementById("rstt")!.addEventListener("click", () => {
+d.getElementById("rstt")!.addEventListener("click", () => {
   currentPlayer = "X"
   gameBoard = Array(9).fill("")
   gameActive = true

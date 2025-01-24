@@ -1,4 +1,6 @@
-const ctx = (document.getElementById('fc') as HTMLCanvasElement).getContext('2d')!;
+import { d } from "./util";
+
+const ctx = (d.getElementById('fc') as HTMLCanvasElement).getContext('2d')!;
 
 let bird = { x: 50, y: 200, v: 0 };
 let pipes: { x: number, y: number }[] = [];
@@ -12,12 +14,12 @@ const reset = () => {
     state = 0;
 };
 
-document.addEventListener('keydown', e => {
+d.addEventListener('keydown', (e: KeyboardEvent) => {
     if (e.code === 'Space') {
         state === 2 ? reset() : (state = 1, bird.v = -3);
     }
 });
-document.getElementById('frs')!.addEventListener('click', reset);
+d.getElementById('frs')!.addEventListener('click', reset);
 
 const loop = () => {
     if (state === 1) { // running
